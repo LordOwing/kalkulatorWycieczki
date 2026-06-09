@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Liczba dni pobytu:"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editDays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Rodzaj transportu:"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroupTransport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioOwn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dojazd własny (0 zł)" />
+
+        <RadioButton
+            android:id="@+id/radioBus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Autokar (100 zł)" />
+
+        <RadioButton
+            android:id="@+id/radioPlane"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Samolot (500 zł)" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Opcje dodatkowe:"
+        android:textSize="18sp" />
+
+    <CheckBox
+        android:id="@+id/checkBreakfast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Śniadania (30 zł / dzień)" />
+
+    <CheckBox
+        android:id="@+id/checkGuide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Przewodnik (150 zł jednorazowo)" />
+
+    <Button
+        android:id="@+id/buttonCalculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="OBLICZ KOSZT" />
+
+</LinearLayout>
