@@ -76,9 +76,9 @@ public class MainActivity extends AppCompatActivity {
             }
 
             StringBuilder summary = new StringBuilder();
-            summary.append("Liczba dni: " + days + "\n");
-            summary.append("Koszt bazowy: "+ baseCost + " zł \n");
-            summary.append("Transport:  "+ selectedTransport + "\n" );
+            summary.append("Liczba dni: " ).append(days).append("\n");
+            summary.append("Koszt bazowy: ").append(baseCost).append(" zł \n");
+            summary.append("Transport:  ").append(selectedTransport).append("\n");
             String totalText = "------------------------------------------------- \n Łącznie: " + totalCost + " zł";
             summary.append(additional);
             summary.append(totalText);
