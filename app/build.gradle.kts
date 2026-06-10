@@ -4,11 +4,7 @@ plugins {
 
 android {
     namespace = "com.example.kalkulatorwycieczki"
-    compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
-    }
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.kalkulatorwycieczki"
@@ -22,9 +18,14 @@ android {
 
     buildTypes {
         release {
-            optimization {
-                enable = false
-            }
+            // This disables code shrinking and obfuscation
+            isMinifyEnabled = false
+
+            // It is also standard practice to include the ProGuard/R8 files here
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {

@@ -22,13 +22,26 @@ public class MainActivity extends AppCompatActivity {
         CheckBox checkBreakfast = findViewById(R.id.checkBreakfast);
         CheckBox checkGuide = findViewById(R.id.checkGuide);
         Button buttonCalculate = findViewById(R.id.buttonCalculate);
-
+        Button resetButton = findViewById(R.id.resetButton);
+        resetButton.setOnClickListener(v -> {
+            radioGroupTransport.setSelected(false);
+            checkBreakfast.setChecked(false);
+            checkGuide.setChecked(false);
+            editDays.setText("");
+                });
         buttonCalculate.setOnClickListener(v -> {
             String daysStr = editDays.getText().toString();
             if (daysStr.isEmpty()) {
                 Toast.makeText(this, "Wpisz liczbę dni!", Toast.LENGTH_SHORT).show();
                 return;
+            }else if(Integer.parseInt(daysStr)>30 ){
+                Toast.makeText(this, "Wpisz liczbę dni mniejszą od 30!", Toast.LENGTH_SHORT).show();
+                return;
+            }else{
+                Toast.makeText(this, "Wpisz liczbę dni większą od 1: " + daysStr, Toast.LENGTH_SHORT).show();
             }
+
+
 
             int days = Integer.parseInt(daysStr);
             int totalCost = days * 120;
