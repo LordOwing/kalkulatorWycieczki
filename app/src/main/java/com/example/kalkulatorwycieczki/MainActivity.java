@@ -47,40 +47,39 @@ public class MainActivity extends AppCompatActivity {
             int days = Integer.parseInt(daysStr);
             int baseCost = days * 120;
             int totalCost = baseCost;
-            int transportCost = 0;
+
             String selectedTransport;
             int selectedTransportId = radioGroupTransport.getCheckedRadioButtonId();
             String additional = "";
             if (selectedTransportId == R.id.radioOwn) {
+                selectedTransport = "Dojazd własny (+ 0zł)";
 
-                selectedTransport = "Dojazd własny";
-                transportCost = 0;
             } else if (selectedTransportId == R.id.radioBus) {
-                transportCost = 100;
-                selectedTransport = "Autokar";
+                totalCost +=150;
+                selectedTransport = "Autokar (+ 100zł)";
             } else if (selectedTransportId == R.id.radioPlane) {
-                transportCost = 500;
-                selectedTransport = "Samolot";
+                totalCost += 500;
+                selectedTransport = "Samolot (+ 500zł)";
             } else {
                 Toast.makeText(this, "Wybierz rodzaj transportu!", Toast.LENGTH_SHORT).show();
                 return;
             }
-            totalCost += transportCost;
+
             if (checkGuide.isChecked()) {
                 totalCost += 150;
                 additional += "Przewodnik: (+ 150 zł) \n";
             }
             if (checkBreakfast.isChecked()) {
-                totalCost += days * 30;
-                additional += "Śniadania: (+ 150 zł) \n";
+                int breakfastCost = days * 30;
+                totalCost += breakfastCost;
+                additional += "Śniadania: (+ " + breakfastCost + " zł) \n";
             }
 
             StringBuilder summary = new StringBuilder();
-            String summary1 = "Liczba dni: " + days + "\n" +
-                    "Koszt bazowy: "+ baseCost + " zł \n" +
-                    "Transport:  "+ selectedTransport + " (+ " + transportCost + " zł )\n" ;
+            summary.append("Liczba dni: " + days + "\n");
+            summary.append("Koszt bazowy: "+ baseCost + " zł \n");
+            summary.append("Transport:  "+ selectedTransport + "\n" );
             String totalText = "------------------------------------------------- \n Łącznie: " + totalCost + " zł";
-            summary.append(summary1);
             summary.append(additional);
             summary.append(totalText);
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
